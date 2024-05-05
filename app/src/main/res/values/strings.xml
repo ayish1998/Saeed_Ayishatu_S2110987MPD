@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">WeatherWise</string>
+    <string name="portraitText">Portrait</string>
+    <string name="landscapeText">Landscape</string>
+
+
+    //Headings
+    <string name="heading_one">Welcome to WeatherWise</string>
+    <string name="heading_two">Stay Updated</string>
+    <string name="heading_three">Plan Your Day</string>
+    <string name="heading_fourth">Stay Prepared</string>
+
+
+    //Description
+    <string name="desc_one">Stay informed about the weather conditions in your area and beyond with Weather Insight. Get real-time updates, accurate forecasts, and personalized weather notifications to help you plan your day.</string>
+    <string name="desc_two">Get the latest weather updates and forecasts at your fingertips. Whether you\'re planning a trip or just want to know if you need an umbrella, WeatherWise Insight has you covered.</string>
+    <string name="desc_three">Use WeatherWise Insight to plan your day with confidence. Whether it\'s a picnic, a hike, or just a walk in the park, know the weather conditions in advance.</string>
+    <string name="desc_fourth">Stay informed and prepared for any weather conditions. Whether you\'re at home or traveling, WeatherWise Insight keeps you updated with reliable forecasts and alerts.</string>
+
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="weatherwise">WeatherWise</string>
+    <string name="skip">Skip</string>
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="s2110987">S2110987</string>
+    <string name="weatherwise_app">WeatherWise App</string>
+    <string name="first_step_indicator">First step indicator</string>
+    <string name="todo">TODO</string>
+    <string name="today">Today</string>
+    <string name="locations">Locations</string>
+
+</resources>
