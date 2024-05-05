@@ -17,12 +17,51 @@
         app:navigationIcon="?attr/homeAsUpIndicator"
         app:title="Settings" />
 
-<!--    <TextView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Settings"-->
-<!--        android:textSize="24sp"-->
-<!--        android:textStyle="bold" />-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update Intervals"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Morning Update Time: " />
+
+            <EditText
+                android:id="@+id/morningUpdateTimeEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="08:00"
+                android:inputType="time" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Evening Update Time: " />
+
+            <EditText
+                android:id="@+id/eveningUpdateTimeEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="20:00"
+                android:inputType="time" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,5 +80,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
-    <!-- Add more settings UI elements as needed -->
+
+            <!-- Save Button -->
+            <Button
+                android:id="@+id/SaveButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:text="Save"
+                android:background="@color/buttonColor"
+                android:textColor="@color/white" />
+        </LinearLayout>
 </LinearLayout>

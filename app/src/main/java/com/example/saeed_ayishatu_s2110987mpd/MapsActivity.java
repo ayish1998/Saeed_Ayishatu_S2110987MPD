@@ -1,8 +1,14 @@
 package com.example.saeed_ayishatu_s2110987mpd;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentActivity;
 
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.example.saeed_ayishatu_s2110987mpd.Adapters.CustomInfoWindowAdapter;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -10,6 +16,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.saeed_ayishatu_s2110987mpd.databinding.ActivityMapsBinding;
 
@@ -20,10 +27,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
+    private Map<String, ObservationData> observationDataMap = new HashMap<>();
+    private Map<String, Marker> markerMap = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_maps_with_back_button);
+
+        // Set up the toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+
+
 
         binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -32,17 +48,31 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        // Set up the search button click listener
+        ImageButton searchButton = findViewById(R.id.search_button);
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                searchLocation();
+            }
+        });
     }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
+    private void setSupportActionBar(Toolbar toolbar) {
+    }
+
+    @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            if (item.getItemId() == android.R.id.home) {
+                // Handle the back button click
+                onBackPressed();
+                return true;
+            }
+            return super.onOptionsItemSelected(item);
+        }
+
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -65,9 +95,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             LatLng locationLatLng = getLatLngForLocationId(locationId);
 
             // Add a marker for the location
-            mMap.addMarker(new MarkerOptions()
+            Marker marker = mMap.addMarker(new MarkerOptions()
                     .position(locationLatLng)
                     .title(locationName));
+
+            // Store the marker in the markerMap
+            markerMap.put(locationName, marker);
+
+            // Retrieve the observation data for the location
+            ObservationData observationData = getObservationDataForLocation(locationName);
+            observationDataMap.put(locationName, observationData);
         }
 
         // Move the camera to a default position or the first location
@@ -75,6 +112,47 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             LatLng firstLocationLatLng = getLatLngForLocationId(locationMap.values().iterator().next());
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(firstLocationLatLng, 10));
         }
+
+        // Set a custom info window adapter
+        mMap.setInfoWindowAdapter(new CustomInfoWindowAdapter(this, observationDataMap));
+    }
+
+    private void searchLocation() {
+        EditText searchEditText = findViewById(R.id.search_edit_text);
+        String searchQuery = searchEditText.getText().toString().trim();
+
+        // Check if the search query matches any of the location names
+        if (markerMap.containsKey(searchQuery)) {
+            Marker marker = markerMap.get(searchQuery);
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker.getPosition(), 10));
+            marker.showInfoWindow();
+        } else {
+            Toast.makeText(this, "Location not found", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private ObservationData getObservationDataForLocation(String locationName) {
+        // Retrieve the observation data for the given location name
+        // You can make an API call or fetch the data from a local database
+        // For simplicity, let's assume you have a method that returns the observation data
+        return fetchObservationDataFromAPI(locationName);
+    }
+
+    private ObservationData fetchObservationDataFromAPI(String locationName) {
+        // Simulated method to fetch observation data from an API
+        // Replace this with your actual implementation
+        ObservationData observationData = new ObservationData();
+        observationData.setWeatherCondition("Sunny");
+        observationData.setTemperature("25°C");
+        observationData.setWindDirection("NW");
+        observationData.setWindSpeed("10 km/h");
+        observationData.setHumidity("60%");
+        observationData.setPressure("1013 hPa");
+        observationData.setVisibility("10 km");
+        observationData.setDate("2023-06-07");
+        observationData.setTime("14:30");
+        observationData.setCountryName(locationName);
+        return observationData;
     }
 
     private LatLng getLatLngForLocationId(int locationId) {
@@ -90,7 +168,4 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Return the LatLng for the given location ID, or a default LatLng if not found
         return locationIdToLatLngMap.getOrDefault(locationId, new LatLng(0, 0));
     }
-
-
-
 }

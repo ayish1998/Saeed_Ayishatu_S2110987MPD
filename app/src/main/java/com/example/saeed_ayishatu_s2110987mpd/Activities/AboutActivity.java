@@ -1,19 +1,14 @@
 package com.example.saeed_ayishatu_s2110987mpd.Activities;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.saeed_ayishatu_s2110987mpd.R;
 
@@ -34,7 +29,6 @@ public class AboutActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         appNameTextView = findViewById(R.id.appNameTextView);
         appVersionTextView = findViewById(R.id.appVersionTextView);
@@ -51,22 +45,32 @@ public class AboutActivity extends AppCompatActivity {
         privacyPolicyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openWebPage("https://example.com/privacy-policy");
+                showPrivacyPolicyDialog();
             }
         });
 
         termsOfServiceButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openWebPage("https://example.com/terms-of-service");
+                showTermsOfServiceDialog();
             }
         });
     }
 
-    private void openWebPage(String url) {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(url));
-        startActivity(intent);
+    private void showPrivacyPolicyDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Privacy Policy")
+                .setMessage("This is the privacy policy of the Weather App. We take your privacy seriously and are committed to protecting your personal information.")
+                .setPositiveButton("OK", null)
+                .show();
+    }
+
+    private void showTermsOfServiceDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Terms of Service")
+                .setMessage("These are the terms of service for using the Weather App. By using this app, you agree to abide by these terms.")
+                .setPositiveButton("OK", null)
+                .show();
     }
 
     @Override
