@@ -23,7 +23,7 @@ WeatherWise is an Android application developed to provide accurate and up-to-da
 
 **Setup and Usage**
 
-1. Clone the repository: `git clone https://github.com/your-username/WeatherWise.git`
+1. Clone the repository: `(https://github.com/ayish1998/Saeed_Ayishatu_S2110987MPD.git)`
 2. Open the project in Android Studio.
 3. Build and run the app on an Android device or emulator.
 4. Upon launch, the app will fetch and display the weather information for the available locations.
