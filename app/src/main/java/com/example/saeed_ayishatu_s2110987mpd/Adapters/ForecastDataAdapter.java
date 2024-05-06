@@ -1,5 +1,6 @@
 package com.example.saeed_ayishatu_s2110987mpd.Adapters;
-
+//Name: Ayishatu Saeed
+//Student ID:S2110987
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;

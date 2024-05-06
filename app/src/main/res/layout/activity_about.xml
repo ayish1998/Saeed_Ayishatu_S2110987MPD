@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--Name: Ayishatu Saeed-->
+<!--ID: S2110987-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -15,7 +17,7 @@
         android:background="?attr/colorPrimary"
         app:titleTextColor="@color/white"
         app:navigationIcon="?attr/homeAsUpIndicator"
-        app:title="About" />
+        app:title="@string/s2110987" />
 
     <TextView
         android:id="@+id/appNameTextView"

@@ -18,7 +18,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:navigationIcon="?attr/homeAsUpIndicator"
-            app:title="Map" />
+            app:title="@string/s2110987" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

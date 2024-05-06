@@ -1,5 +1,6 @@
 package com.example.saeed_ayishatu_s2110987mpd;
-
+//Name: Ayishatu Saeed
+//Student ID:S2110987
 public class ObservationData {
     private String weatherCondition;
     private String temperature;

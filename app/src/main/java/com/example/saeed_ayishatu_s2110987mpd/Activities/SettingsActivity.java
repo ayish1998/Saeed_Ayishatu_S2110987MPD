@@ -1,5 +1,6 @@
 package com.example.saeed_ayishatu_s2110987mpd.Activities;
-
+//Name: Ayishatu Saeed
+//Student ID:S2110987
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
