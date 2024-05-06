@@ -1,6 +1,7 @@
 package com.example.saeed_ayishatu_s2110987mpd;
 //Name: Ayishatu Saeed
 //Student ID:S2110987
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -175,5 +177,17 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         // Return the LatLng for the given location ID, or a default LatLng if not found
         return locationIdToLatLngMap.getOrDefault(locationId, new LatLng(0, 0));
+    }
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            // Landscape orientation
+            // Update the UI or perform any necessary actions
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            // Portrait orientation
+            // Update the UI or perform any necessary actions
+        }
     }
 }

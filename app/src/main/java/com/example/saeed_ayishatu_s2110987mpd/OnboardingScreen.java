@@ -2,6 +2,7 @@ package com.example.saeed_ayishatu_s2110987mpd;
 //Name: Ayishatu Saeed
 //Student ID:S2110987
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.ViewPager;
@@ -123,5 +125,18 @@ public class OnboardingScreen extends AppCompatActivity {
 
     private int getitem(int i) {
         return mSlideViewPager.getCurrentItem() + i;
+    }
+
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            // Landscape orientation
+            // Update the UI or perform any necessary actions
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            // Portrait orientation
+            // Update the UI or perform any necessary actions
+        }
     }
 }

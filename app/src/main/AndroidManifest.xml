@@ -37,28 +37,40 @@
         <activity
             android:name=".MapsActivity"
             android:exported="false"
-            android:label="@string/title_activity_maps" />
+            android:label="@string/title_activity_maps"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|screenSize" />
         <activity
             android:name=".Activities.SettingsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|screenSize" />
         <activity
             android:name=".mainscreen"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|screenSize" />
         <activity
             android:name=".ViewPagerAdapter"
             android:exported="false" />
         <activity
             android:name=".OnboardingScreen"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|screenSize" />
         <activity
             android:name=".LocationDataActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|screenSize" />
         <activity
             android:name=".Activities.AboutActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|screenSize"/>
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true">

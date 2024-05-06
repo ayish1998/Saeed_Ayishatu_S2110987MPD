@@ -2,12 +2,14 @@ package com.example.saeed_ayishatu_s2110987mpd.Activities;
 //Name: Ayishatu Saeed
 //Student ID:S2110987
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -82,5 +84,17 @@ public class AboutActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            // Landscape orientation
+            // Update the UI or perform any necessary actions
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            // Portrait orientation
+            // Update the UI or perform any necessary actions
+        }
     }
 }

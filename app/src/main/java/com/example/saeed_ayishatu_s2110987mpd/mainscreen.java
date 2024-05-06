@@ -2,11 +2,13 @@ package com.example.saeed_ayishatu_s2110987mpd;
 //Name: Ayishatu Saeed
 //Student ID:S2110987
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.saeed_ayishatu_s2110987mpd.Adapters.CustomLocationAdapter;
@@ -62,6 +64,18 @@ public class mainscreen extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            // Landscape orientation
+            // Update the UI or perform any necessary actions
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            // Portrait orientation
+            // Update the UI or perform any necessary actions
+        }
     }
 }
 

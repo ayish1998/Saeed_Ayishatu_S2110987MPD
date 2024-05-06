@@ -1,10 +1,13 @@
 package com.example.saeed_ayishatu_s2110987mpd;
 //Name: Ayishatu Saeed
 //Student ID:S2110987
+import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Pair;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -70,6 +73,18 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 Log.e("FetchWeatherDataTask", "Forecast data is null or empty");
             }
+        }
+    }
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            // Landscape orientation
+            // Update the UI or perform any necessary actions
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            // Portrait orientation
+            // Update the UI or perform any necessary actions
         }
     }
 }
